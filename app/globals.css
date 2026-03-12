@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --font-body: "Avenir Next", "Nunito Sans", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: "Avenir Next", "Sora", "Trebuchet MS", "Segoe UI", sans-serif;
+  --surface: 235 23% 7%;
+  --card: 232 17% 14%;
+  --text: 210 22% 96%;
+  --muted: 221 9% 68%;
+  --border: 229 13% 23%;
+  --accent: 74 58% 47%;
+}
+
+.light {
+  color-scheme: light;
+  --surface: 220 30% 97%;
+  --card: 0 0% 100%;
+  --text: 228 19% 14%;
+  --muted: 225 11% 45%;
+  --border: 223 24% 87%;
+  --accent: 76 63% 40%;
+}
+
+.dark {
+  color-scheme: dark;
+  --surface: 235 23% 7%;
+  --card: 232 17% 14%;
+  --text: 210 22% 96%;
+  --muted: 221 9% 68%;
+  --border: 229 13% 23%;
+  --accent: 74 58% 47%;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 20% 0%, rgb(155 140 255 / 0.14), transparent 42%),
+    radial-gradient(circle at 100% 10%, rgb(180 220 90 / 0.1), transparent 35%),
+    hsl(var(--surface));
+  color: hsl(var(--text));
+  font-family: var(--font-body), ui-sans-serif, system-ui, -apple-system;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgb(255 255 255 / 0.03), transparent 25%, rgb(0 0 0 / 0.22));
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), var(--font-body), ui-sans-serif, system-ui;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+input[type='date'] {
+  min-height: 44px;
+}
