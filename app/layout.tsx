@@ -1,12 +1,11 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { AppDataProvider } from '@/hooks/use-app-data';
-import { ServiceWorkerRegister } from '@/components/service-worker-register';
 
 export const metadata: Metadata = {
-  title: 'Трекер привычек',
-  description: 'Личный трекер привычек с офлайн-режимом для iPhone.',
-  applicationName: 'Трекер привычек',
+  title: 'Никах Ильнура и Камиллы',
+  description: 'Приглашение на никах Ильнура и Камиллы 05 июня 2026 года в Казани.',
+  applicationName: 'Никах Ильнур и Камилла',
   manifest: '/manifest.json',
   icons: {
     icon: [
@@ -18,8 +17,8 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    title: 'Трекер привычек',
-    statusBarStyle: 'black-translucent'
+    title: 'Никах Ильнур и Камилла',
+    statusBarStyle: 'default'
   },
   formatDetection: {
     telephone: false,
@@ -36,14 +35,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  minimumScale: 1,
-  userScalable: false,
   viewportFit: 'cover',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f4f8fc' },
-    { media: '(prefers-color-scheme: dark)', color: '#121522' }
-  ]
+  themeColor: '#efe4d7'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -51,7 +44,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ru" suppressHydrationWarning>
       <body className="antialiased">
         <AppDataProvider>
-          <ServiceWorkerRegister />
           {children}
         </AppDataProvider>
       </body>

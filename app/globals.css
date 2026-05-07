@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   --font-body: "Avenir Next", "Nunito Sans", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-heading: "Avenir Next", "Sora", "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-heading: "Baskerville", "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
   --surface: 235 23% 7%;
   --card: 232 17% 14%;
   --text: 210 22% 96%;
@@ -42,15 +42,16 @@ html,
 body {
   min-height: 100%;
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 20% 0%, rgb(155 140 255 / 0.14), transparent 42%),
-    radial-gradient(circle at 100% 10%, rgb(180 220 90 / 0.1), transparent 35%),
-    hsl(var(--surface));
-  color: hsl(var(--text));
+    radial-gradient(circle at 18% 12%, rgb(222 193 151 / 0.26), transparent 28%),
+    radial-gradient(circle at 84% 22%, rgb(138 164 156 / 0.16), transparent 24%),
+    linear-gradient(180deg, #f7efe5 0%, #f1e7d8 45%, #ece0cf 100%);
+  color: #263934;
   font-family: var(--font-body), ui-sans-serif, system-ui, -apple-system;
 }
 
@@ -59,7 +60,9 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(to bottom, rgb(255 255 255 / 0.03), transparent 25%, rgb(0 0 0 / 0.22));
+  background:
+    linear-gradient(to bottom, rgb(255 255 255 / 0.56), transparent 18%, rgb(255 255 255 / 0.18)),
+    radial-gradient(circle at top, rgb(255 255 255 / 0.5), transparent 46%);
 }
 
 .no-scrollbar {
@@ -88,4 +91,83 @@ select {
 
 input[type='date'] {
   min-height: 44px;
+}
+
+.glass-card {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.font-heading {
+  font-family: var(--font-heading), var(--font-body), ui-serif, Georgia, serif;
+}
+
+.invitation-sheet {
+  border: 1px solid rgb(234 220 198 / 0.95);
+  background: linear-gradient(180deg, rgb(255 252 247 / 0.96) 0%, rgb(255 248 239 / 0.92) 100%);
+  box-shadow: 0 24px 60px -34px rgb(82 59 32 / 0.34);
+}
+
+.paper-section {
+  position: relative;
+}
+
+.shimmer-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+.shimmer-frame::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 1px solid rgb(255 255 255 / 0.28);
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 860ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.ornament-float {
+  animation: drift 9s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -12px, 0) scale(1.04);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+
+  .fade-up,
+  .ornament-float {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
